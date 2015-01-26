@@ -24,7 +24,7 @@ Rails.application.configure do
 
   # Compress JavaScripts and CSS.
   config.assets.js_compressor = :uglifier
-  # config.assets.css_compressor = :sass
+  config.assets.css_compressor = :sass
 
   # Do not fallback to assets pipeline if a precompiled asset is missed.
   config.assets.compile = false
@@ -42,7 +42,7 @@ Rails.application.configure do
   # config.force_ssl = true
 
   # Set to :debug to see everything in the log.
-  config.log_level = :info
+  config.log_level = :warn
 
   # Prepend all log lines with the following tags.
   # config.log_tags = [ :subdomain, :uuid ]
@@ -79,4 +79,19 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+  # Email
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.perform_deliveries = true
+  #config.action_mailer.default_url_options = { :host => config.app_domain }
+  config.action_mailer.default_url_options = { host: ENV['HOSTNAME'] }
+  config.action_mailer.smtp_settings = {
+    address: 'smtp.mandrillapp.com', 
+    port: '587',
+    enable_starttls_auto: true,
+    user_name: ENV['MANDRILL_USER'],
+    password: ENV['MANDRILL_SECRET'],
+    authentication: 'login',
+    domain: ENV['RAW_DOMAIN']
+  }
 end
