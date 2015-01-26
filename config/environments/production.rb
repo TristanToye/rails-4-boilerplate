@@ -1,4 +1,12 @@
 Rails.application.configure do
+
+  # =======================
+  # GENERAL 
+  # =======================
+
+  # Domain Name
+  config.app_domain = 'somedomain.com'
+
   # Settings specified here will take precedence over those in config/application.rb.
 
   # Code is not reloaded between requests.
@@ -80,11 +88,13 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 
-  # Email
+  # =======================
+  # EMAIL 
+  # =======================
+
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.perform_deliveries = true
-  #config.action_mailer.default_url_options = { :host => config.app_domain }
-  config.action_mailer.default_url_options = { host: ENV['HOSTNAME'] }
+  config.action_mailer.default_url_options = { host: config.app_domain }
   config.action_mailer.smtp_settings = {
     address: 'smtp.mandrillapp.com', 
     port: '587',
@@ -92,6 +102,6 @@ Rails.application.configure do
     user_name: ENV['MANDRILL_USER'],
     password: ENV['MANDRILL_SECRET'],
     authentication: 'login',
-    domain: ENV['RAW_DOMAIN']
+    domain: config.app_domain
   }
 end

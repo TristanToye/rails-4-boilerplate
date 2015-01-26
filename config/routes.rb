@@ -1,9 +1,34 @@
 Rails.application.routes.draw do
+
+  # =======================
+  # GENERAL
+  # =======================
+
+   # You can have the root of your site routed with "root"
+  root 'shared#index'
+
+  # =======================
+  # USERS
+  # =======================
+
+  # User Authentication
+  devise_for :users, :controllers => {omniauth_callbacks: 'omniauth_callbacks'}
+
+  # After signup request extra user details
+  match '/users/:id/finish_signup' => 'users#finish_signup', via: [:get, :patch], :as => :finish_signup
+
+  resources :users, except: [:show, :new, :create] do
+
+  # Edit Non-authentication actions
+
+  end
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
-  # You can have the root of your site routed with "root"
-  root 'shared#index'
+  # =======================
+  # UNUSED DEFAULTS
+  # =======================
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

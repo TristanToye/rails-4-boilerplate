@@ -1,14 +1,27 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Rails4Boilerplate</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+	<head>
+	  <title>Rails4Boilerplate</title>
+	  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+	  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+	  <%= csrf_meta_tags %>
+	</head>
+	<body>
 
-<%= yield %>
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-12">
+					<% if notice %>
+						<p class="notice"><%= notice %></p>
+					<% end %>
+					<% if alert %>
+						<p class="alert"><%= alert %></p>
+					<% end %>
 
-</body>
+					<%= yield %>
+				</div>
+			</div>
+		</div>
+		
+	</body>
 </html>

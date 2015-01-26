@@ -1,0 +1,15 @@
+<h2>Edit Profile Info</h2>
+
+<%= form_for(@user, url: user_path(id: @user.id), html: { method: :put }) do |f| %>
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Update" %>
+  </div>
+<% end %>
+
+<%= link_to "Back", :back %>
