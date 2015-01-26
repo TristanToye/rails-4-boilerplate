@@ -1,14 +1,27 @@
-== README
+== Rails 4 Boilerplate
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is a starting point for a simple user app in rails. This core set of gems requires very little config to get up and running.
 
-Things you may want to cover:
+==== What is included in this boilerplate:
+* {Rails 4}[https://github.com/rails/rails]
+* {Devise}[https://github.com/plataformatec/devise] - Users setup & ready to go
+* {Omniauth Multiauth}[https://github.com/intridea/omniauth] - Facbook, Twitter, & Linkedin ready to rock
+* Email SMTP - simple config with Mandrill[https://mandrillapp.com]
+* {Bootstrap Sass}[https://github.com/twbs/bootstrap-sass]
+* {FontAwesome Sass}[https://github.com/FortAwesome/font-awesome-sass]
+* {Rspec Test Suite}[https://github.com/rspec/rspec] (Factory Girl, Capybara, Faker, etc.)
+* {Check the Gemfile for more!}[https://github.com/TristanToye/rails-4-boilerplate/blob/master/Gemfile]
 
-* Ruby version
+==== How do I set this up?
+* Coming Soon
 
-* System dependencies
+==== How do I deploy this?
+* Coming Soon
 
+==== How do setup a server for this?
+* Coming Soon
+
+===== Other things coming soon:
 * Configuration
 
 * Database creation
@@ -16,13 +29,3 @@ Things you may want to cover:
 * Database initialization
 
 * How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
