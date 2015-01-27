@@ -19,7 +19,9 @@ A demo can be found here, it may take a second to load: [https://rails-4-boilerp
 
 Clone the repo to your local machine.
 
-<pre>git clone https://github.com/TristanToye/rails-4-boilerplate.git</pre>
+```html
+git clone https://github.com/TristanToye/rails-4-boilerplate.git
+```
 
 Run `bundle install` to install all the gems we are using.
 
@@ -35,46 +37,60 @@ Omniauth is a authentication library that has many great gems that allow you to 
 
 To get started; in our .env we want to set a default email address that will send notifications to users (password reset, welcome message, etc.)
 
-<pre>DEVISE_EMAIL_SENDER=info@yourdomain.com</pre>
+```html
+DEVISE_EMAIL_SENDER=info@yourdomain.com
+```
 
 #### Twitter Login
 
 If you want to use Twitter auth in your app uncomment this line from config/initializers/devise.rb
 
-<pre># config.omniauth :twitter, ENV["TWITTER_APP_ID"], ENV["TWITTER_APP_SECRET"]</pre>
+```ruby
+# config.omniauth :twitter, ENV["TWITTER_APP_ID"], ENV["TWITTER_APP_SECRET"]
+```
 
 Next, get/create keys for your Twitter app [here](https://apps.twitter.com/).
 
 Finally, set the environment variables in our .env
 
-<pre>TWITTER_APP_ID=YOUR_APP_ID
-TWITTER_APP_SECRET=YOUR_APP_SECRET</pre>
+```html
+TWITTER_APP_ID=YOUR_APP_ID
+TWITTER_APP_SECRET=YOUR_APP_SECRET
+```
 
 #### Facebook Login
 
 If you want to use Facebook auth in your app uncomment this line from config/initializers/devise.rb
 
-<pre># config.omniauth :facebook, ENV["FACEBOOK_APP_ID"], ENV["FACEBOOK_APP_SECRET"</pre>
+```ruby
+# config.omniauth :facebook, ENV["FACEBOOK_APP_ID"], ENV["FACEBOOK_APP_SECRET"
+```
 
 Next, get/create keys for your Facebook app [here](https://developers.facebook.com).
 
 Finally, set the environment variables in our .env
 
-<pre>FACEBOOK_APP_ID=YOUR_APP_ID
-FACEBOOK_APP_SECRET=YOUR_APP_SECRET</pre>
+```html
+FACEBOOK_APP_ID=YOUR_APP_ID
+FACEBOOK_APP_SECRET=YOUR_APP_SECRET
+```
 
 #### LinkedIn Login
 
 If you want to use LinkedIn auth in your app uncomment this line from config/initializers/devise.rb
 
-<pre># config.omniauth :linkedin, ENV["LINKEDIN_APP_ID"], ENV["LINKEDIN_APP_SECRET"]</pre>
+```ruby
+# config.omniauth :linkedin, ENV["LINKEDIN_APP_ID"], ENV["LINKEDIN_APP_SECRET"]
+```
 
 Next, get/create keys for your LinkedIn app [here](https://developer.linkedin.com/).
 
 Finally, set the environment variables in our .env
 
-<pre>LINKEDIN_APP_ID=YOUR_APP_ID
-LINKEDIN_APP_SECRET=YOUR_APP_SECRET</pre>
+```html
+LINKEDIN_APP_ID=YOUR_APP_ID
+LINKEDIN_APP_SECRET=YOUR_APP_SECRET
+```
 
 ### Configure Email Via SMTP
 
@@ -82,12 +98,16 @@ We recommend you send your emails through [Mandrill](https://mandrillapp.com/) i
 
 Generate a new API key and add it to our .env
 
-<pre>MANDRILL_USER=youremail@email.com
-MANDRILL_SECRET=YOUR_SECRET</pre>
+```html
+MANDRILL_USER=youremail@email.com
+MANDRILL_SECRET=YOUR_SECRET
+```
 
 Next, we need to add the domain we are using to send from - for link purposes in emails. Add this to you .env file:
 
-<pre>APP_DOMAIN=yourdomain.com</pre>
+```html
+APP_DOMAIN=yourdomain.com
+```
 
 ### Database Connections
 
@@ -95,21 +115,29 @@ In config/database.yml we need to change the database names to what you want to 
 
 We are again using environment variables to set the database password for production. In your .env file you will need to add:
 
-<pre>DATABASE_PASSWORD=YOUR_PASSWORD</pre>
+```html
+DATABASE_PASSWORD=YOUR_PASSWORD
+```
 
 By default we are using [Postgresql](http://www.postgresql.org/) for development, test, & production evironments. Rails ships with sqlite by default, but I highly recommend using the same database in development, testing, & production to ensure you are actually working with & testing what you are putting in production. To run Postgresql on OSX I highly recommend [this app](http://postgresapp.com/).
 
 Once you have added your correct credentials, and have Postgres running, we can go ahead and create our databases locally:
 
-<pre>rake db:create db:migrate</pre>
+```html
+rake db:create db:migrate
+```
 
 To get all the tests working remeber to run this before each testing sessions - it will ensure your test database is inline with the development database structure:
 
-<pre>rake db:test:prepare<pre>
+```html
+rake db:test:prepare```html
+
 
 In some cases you may need to tell Rails what environment to use for database commands, for example:
 
-<pre>RAILS_ENV=test rake db:test:prepare</pre>
+```html
+RAILS_ENV=test rake db:test:prepare
+```
 
 ## How do I deploy this?
 
@@ -123,37 +151,47 @@ In this repo we have included the cap files and deployment setup, however, in pr
 
 To get started open config/deploy.rb and customize the following lines to match your app:
 
-<pre>set :application, 'rails-4-boilerplate'
+```ruby
+set :application, 'rails-4-boilerplate'
 set :repo_url, 'git@github.com:TristanToye/rails-4-boilerplate.git'
-set :deploy_to, '/var/www/rails-4-boilerplate'</pre>
+set :deploy_to, '/var/www/rails-4-boilerplate'
+```
 
 The deloy_to is where your web server is pointing port 80 to.
 
 Next you will a folder config/deploy that contains two files, these are the config files for each environment you are looking to deploy to. You will need to replace the following with your own server details:
 
-<pre>role :app, %w{deploy@example.com}
+```ruby
+role :app, %w{deploy@example.com}
 role :web, %w{deploy@example.com}
-role :db,  %w{deploy@example.com}</pre>
+role :db,  %w{deploy@example.com}
+```
 
-<pre>server 'example.com', user: 'deploy', roles: %w{web app}, my_property: :my_value</pre>
+```ruby
+server 'example.com', user: 'deploy', roles: %w{web app}, my_property: :my_value
+```
 
 To make deployment super simple, [setup a ssh key](https://www.digitalocean.com/community/tutorials/how-to-set-up-ssh-keys--2) for each environment. Uncomment these lines and specify where your local key is.
 
-<pre>
+```ruby
 set :ssh_options, {
   keys: %w(/home/USERNAME/.ssh/id_rsa),
   forward_agent: false,
   auth_methods: %w(password)
 }
-</pre>
+```
 
 To deploy simply type the following in the command line:
 
-<pre>cap production deploy</pre>
+```html
+cap production deploy
+```
 
 You may run into some memory problems with large git repos. Often a server restart can be a quick fix for freeing up a bit of memory:
 
-<pre>sudo service nginx restart</pre>
+```html
+sudo service nginx restart
+```
 
 ## How do I setup a server for this?
 
