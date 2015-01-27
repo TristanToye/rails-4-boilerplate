@@ -5,5 +5,5 @@
 	<a href="<%= new_user_registration_path %>" class="btn btn-primary">Sign Up</a> <a href="<%= new_user_session_path %>" class="btn btn-default">Sign In</a>
 <% else %>
 	<h3>Welcome <%= current_user.email %></h3>
-	<p><%= link_to "Update Profile", edit_user_path(id: current_user.id), class: "btn btn-default"%> <%= link_to "Edit Account", edit_user_registration_path, class: "btn btn-default"%> <%= link_to 'Logout', destroy_user_session_path, :method => :delete , class: "btn btn-danger" %></p>
+	<p><%= link_to "Update Profile", edit_user_path(id: current_user.id), class: "btn btn-default"%> <%= link_to "Edit Account", edit_user_registration_path, class: "btn btn-default"%> <%= link_to 'Admin Panel', rails_admin_path, class: "btn btn-info" if current_user.is_admin? %> <%= link_to 'Logout', destroy_user_session_path, :method => :delete , class: "btn btn-danger" %></p>
 <% end %>

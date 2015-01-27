@@ -54,4 +54,9 @@ class User < ActiveRecord::Base
   def email_verified?
     self.email && self.email !~ TEMP_EMAIL_REGEX
   end
+
+  def is_admin?
+    self.admin
+  end 
+
 end

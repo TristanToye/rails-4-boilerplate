@@ -40,6 +40,13 @@ gem 'omniauth-facebook'
 gem 'omniauth-linkedin'
 
 # =======================
+# ADMIN
+# =======================
+
+# Core Admin Panel
+gem 'rails_admin'
+
+# =======================
 # UI GEMS
 # =======================
 
