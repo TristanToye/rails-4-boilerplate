@@ -82,4 +82,4 @@ production:
   <<: *default
   database: rails-4-boilerplate_production
   username: rails-4-boilerplate
-  password: <%= ENV['RAILS-4-BOILERPLATE_DATABASE_PASSWORD'] %>
+  password: <%= ENV['DATABASE_PASSWORD'] %>
