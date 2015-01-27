@@ -85,10 +85,9 @@ Generate a new API key and add it to our .env
 MANDRILL_USER=youremail@email.com
 MANDRILL_SECRET=YOUR_SECRET
 
-Next, in config/environments we need to update production.rb, change this line to match your domain:
+Next, we need to add the domain we are using to send from - for link purposes in emails. Add this to you .env file:
 
-# Domain Name
-config.app_domain = 'somedomain.com'
+APP_DOMAIN=yourdomain.com
 
 ==== Database Connections
 

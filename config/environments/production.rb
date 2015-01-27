@@ -5,7 +5,7 @@ Rails.application.configure do
   # =======================
 
   # Domain Name
-  config.app_domain = 'somedomain.com'
+  config.app_domain = ENV["APP_DOMAIN"]
 
   # Settings specified here will take precedence over those in config/application.rb.
 
