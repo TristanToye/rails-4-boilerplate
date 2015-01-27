@@ -29,7 +29,7 @@ Run `bundle install` to install all the gems we are using.
 
 Locally we are using [dotenv](https://github.com/bkeepers/dotenv), which allows us to load all the environment varibles we are using for most config functions in one file - making it easy to keep track of. You can use this in production as well, but make sure you gitignore the local file (it is in gitignore by default for this boilerplate).
 
-Create a .env file in the root of the repo, we will use this to save our environment variables as we go through config.
+Create a `.env` file in the root of the repo, we will use this to save our environment variables as we go through config.
 
 ### Configure Omniauth
 
@@ -43,7 +43,7 @@ DEVISE_EMAIL_SENDER=info@yourdomain.com
 
 #### Twitter Login
 
-If you want to use Twitter auth in your app uncomment this line from config/initializers/devise.rb
+If you want to use Twitter auth in your app uncomment this line from `config/initializers/devise.rb`
 
 ```ruby
 # config.omniauth :twitter, ENV["TWITTER_APP_ID"], ENV["TWITTER_APP_SECRET"]
@@ -51,7 +51,7 @@ If you want to use Twitter auth in your app uncomment this line from config/init
 
 Next, get/create keys for your Twitter app [here](https://apps.twitter.com/).
 
-Finally, set the environment variables in our .env
+Finally, set the environment variables in our `.env`
 
 ```html
 TWITTER_APP_ID=YOUR_APP_ID
@@ -60,7 +60,7 @@ TWITTER_APP_SECRET=YOUR_APP_SECRET
 
 #### Facebook Login
 
-If you want to use Facebook auth in your app uncomment this line from config/initializers/devise.rb
+If you want to use Facebook auth in your app uncomment this line from `config/initializers/devise.rb`
 
 ```ruby
 # config.omniauth :facebook, ENV["FACEBOOK_APP_ID"], ENV["FACEBOOK_APP_SECRET"
@@ -68,7 +68,7 @@ If you want to use Facebook auth in your app uncomment this line from config/ini
 
 Next, get/create keys for your Facebook app [here](https://developers.facebook.com).
 
-Finally, set the environment variables in our .env
+Finally, set the environment variables in our `.env`
 
 ```html
 FACEBOOK_APP_ID=YOUR_APP_ID
@@ -77,7 +77,7 @@ FACEBOOK_APP_SECRET=YOUR_APP_SECRET
 
 #### LinkedIn Login
 
-If you want to use LinkedIn auth in your app uncomment this line from config/initializers/devise.rb
+If you want to use LinkedIn auth in your app uncomment this line from `config/initializers/devise.rb`
 
 ```ruby
 # config.omniauth :linkedin, ENV["LINKEDIN_APP_ID"], ENV["LINKEDIN_APP_SECRET"]
@@ -85,7 +85,7 @@ If you want to use LinkedIn auth in your app uncomment this line from config/ini
 
 Next, get/create keys for your LinkedIn app [here](https://developer.linkedin.com/).
 
-Finally, set the environment variables in our .env
+Finally, set the environment variables in our `.env`
 
 ```html
 LINKEDIN_APP_ID=YOUR_APP_ID
@@ -96,14 +96,14 @@ LINKEDIN_APP_SECRET=YOUR_APP_SECRET
 
 We recommend you send your emails through [Mandrill](https://mandrillapp.com/) it's free for low usage and super easy to setup.
 
-Generate a new API key and add it to our .env
+Generate a new API key and add it to our `.env`
 
 ```html
 MANDRILL_USER=youremail@email.com
 MANDRILL_SECRET=YOUR_SECRET
 ```
 
-Next, we need to add the domain we are using to send from - for link purposes in emails. Add this to you .env file:
+Next, we need to add the domain we are using to send from - for link purposes in emails. Add this to you `.env` file:
 
 ```html
 APP_DOMAIN=yourdomain.com
@@ -111,9 +111,9 @@ APP_DOMAIN=yourdomain.com
 
 ### Database Connections
 
-In config/database.yml we need to change the database names to what you want to use for your app. This app is setup using a database located on the same machine. 
+In `config/database.yml` we need to change the database names to what you want to use for your app. This app is setup using a database located on the same machine. 
 
-We are again using environment variables to set the database password for production. In your .env file you will need to add:
+We are again using environment variables to set the database password for production. In your `.env` file you will need to add:
 
 ```html
 DATABASE_PASSWORD=YOUR_PASSWORD
@@ -130,14 +130,24 @@ rake db:create db:migrate
 To get all the tests working remeber to run this before each testing sessions - it will ensure your test database is inline with the development database structure:
 
 ```html
-rake db:test:prepare```html
-
+rake db:test:prepare
+```
 
 In some cases you may need to tell Rails what environment to use for database commands, for example:
 
 ```html
 RAILS_ENV=test rake db:test:prepare
 ```
+
+## Running the Test Suite
+
+We are using [Rspec](https://github.com/rspec/rspec) for testing. To run the exisitng tests in command line type:
+
+```html
+rspec
+```
+
+K.I.S.S. To learn more about writing tests in Rails using this setup I highly recommend [Everyday Rails, Testing with RSpec](https://leanpub.com/everydayrailsrspec?a=1i6GUwZeH5Hg_yvzO2SWPv). It goes over all the basics & gives you a practical approach to Test Driven Development. 
 
 ## How do I deploy this?
 
@@ -149,7 +159,7 @@ We are using [Capistrano](https://github.com/capistrano/capistrano) for deployme
 
 In this repo we have included the cap files and deployment setup, however, in practice you should gitignore these files to ensure no server details are stored in git.
 
-To get started open config/deploy.rb and customize the following lines to match your app:
+To get started open `config/deploy.rb` and customize the following lines to match your app:
 
 ```ruby
 set :application, 'rails-4-boilerplate'
