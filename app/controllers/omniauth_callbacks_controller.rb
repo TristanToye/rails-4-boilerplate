@@ -16,7 +16,7 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
 	end
 
 	[:twitter, :facebook, :linkedin].each do |provider|
-		providers_callback_for provider
+		provides_callback_for provider
 	end
 
 	def after_sign_in_path_for(resource)
