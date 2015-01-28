@@ -20,15 +20,18 @@ A demo can be found here, it may take a second to load: [https://rails-4-boilerp
 
 ## How do I set this up?
 
-Clone the repo to your local machine.
+Clone the repo to your local machine and cd:
 
 ```html
 git clone https://github.com/TristanToye/rails-4-boilerplate.git
+cd rails-4-boilerplate
 ```
 
 Run `bundle install` to install all the gems we are using.
 
-Before we can run the app we need to set some environment variables for various services.
+You can now run the app as normal: `rails s`
+
+However, to use everything properly we need to set some environment variables & configuration for various services.
 
 ### Configuration
 
