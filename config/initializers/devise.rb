@@ -10,7 +10,7 @@ Devise.setup do |config|
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class
   # with default "from" parameter.
-  config.mailer_sender = ENV["DEVISE_EMAIL_SENDER"]
+  config.mailer_sender = APP_CONFIG["default_email_address"]
 
   # Configure the class responsible to send e-mails.
   # config.mailer = 'Devise::Mailer'
@@ -235,13 +235,13 @@ Devise.setup do |config|
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', scope: 'user,public_repo'
 
   # Use Facebook Auth
-  # config.omniauth :facebook, ENV["FACEBOOK_APP_ID"], ENV["FACEBOOK_APP_SECRET"]
+  # config.omniauth :facebook, APP_CONFIG["facebook_app_id"], ENV["FACEBOOK_APP_SECRET"]
 
   # Use Twitter Auth
-  # config.omniauth :twitter, ENV["TWITTER_APP_ID"], ENV["TWITTER_APP_SECRET"]
+  # config.omniauth :twitter, APP_CONFIG["twitter_app_id"], ENV["TWITTER_APP_SECRET"]
 
   # Use Linkedin Auth
-  # config.omniauth :linkedin, ENV["LINKEDIN_APP_ID"], ENV["LINKEDIN_APP_SECRET"]
+  # config.omniauth :linkedin, APP_CONFIG["LINKEDIN_APP_ID"], ENV["LINKEDIN_APP_SECRET"]
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or

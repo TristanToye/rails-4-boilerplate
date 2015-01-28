@@ -42,12 +42,12 @@ Rails.application.configure do
   # config.action_mailer.default_url_options = { :host => config.app_domain }
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
   config.action_mailer.smtp_settings = {
-    address: 'smtp.mandrillapp.com', 
-    port: '587',
+    address:              'smtp.mandrillapp.com', 
+    port:                 '587',
     enable_starttls_auto: true,
-    user_name: ENV['MANDRILL_USER'],
-    password: ENV['MANDRILL_SECRET'],
-    authentication: 'login',
-    domain: 'localhost'
+    user_name:            APP_CONFIG["mandrill_user"],
+    password:             ENV['MANDRILL_SECRET'],
+    authentication:       'login',
+    domain:               'localhost'
   }
 end

@@ -1,0 +1,47 @@
+# :::::::::::::::::
+# App Settings
+# :::::::::::::::::
+
+# Default domain name to be used
+app_name										: 'Rails 4 Boilerplate'
+app_domain									: 'yoursite.com'
+
+# :::::::::::::::::
+# Social Login
+# :::::::::::::::::
+
+facebook_app_id 						: 'xxxxxxxx'
+twitter_app_id 							: 'xxxxxxxx'
+linkedin_app_id 						: 'xxxxxxxx'
+
+# :::::::::::::::::
+# Slack Settings
+# :::::::::::::::::
+
+# Use Slack Notification for supprt and tracking
+use_slack 									: true
+# Slack Team name
+slack_team 									: 'team-name'
+# Default Icon for Slack Sending Messages
+slack_icon_url							: 'https://github.com/apple-touch-icon-144.png'
+# Default Slack User to send natifications as
+slack_user									: 'Rails Bot'
+
+# :::::::::::::::::
+# Contact & Support
+# :::::::::::::::::
+
+# Email for SMTP account with mandrill
+mandrill_user 							: 'rails4boilerplate@gmail.com'
+
+# Default contacts for technical request
+technical_support_email 		: 'rails4boilerplate@gmail.com'
+technical_slack_channel 		: '#technical'
+
+# Default contacts for feedback
+feedback_support_email 			: 'rails4boilerplate@gmail.com'
+feedback_slack_channel 			: '#feedback'
+
+# Default for all other emails & notifications
+default_email_address 			: 'rails4boilerplate@gmail.com'
+default_slack_channel 			: '#general'

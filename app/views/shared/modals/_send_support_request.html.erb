@@ -1,0 +1,38 @@
+<!-- Modal -->
+<div class="modal fade" id="supportModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">How Can We Help?</h4>
+      </div>
+      <div class="modal-body">
+        <%= form_tag send_support_request_path do %>
+        	<div class="form-group">
+	        	<label>What type of of request is this?</label>
+	        	<select required name="message_type" id="message_type" class="form-control">
+	        		<option>Feedback</option>
+	        		<option>Technical Support</option>
+	        		<option>Other</option>
+	        	</select>
+        	</div>
+        	<% if current_user %>
+        		<%= hidden_field_tag :email, current_user.email %>
+        	<% else %>
+        		<div class="form-group">
+	        		<label>Email Address</label>
+		        	<%= text_field_tag :email, '', class: "form-control", required: true %>
+	        	</div>
+        	<% end %>
+        	<div class="form-group">
+	        	<label>Message</label>
+	        	<%= text_area_tag :message, 'What do you want to share with us?', class: "form-control" %>
+        	</div>
+        	<div class="form-group text-right">
+        		<%= submit_tag "Send Support Request", class: "btn btn-primary" %>
+        	</div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

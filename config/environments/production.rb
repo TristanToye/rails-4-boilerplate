@@ -4,9 +4,6 @@ Rails.application.configure do
   # GENERAL 
   # =======================
 
-  # Domain Name
-  config.app_domain = ENV["APP_DOMAIN"]
-
   # Settings specified here will take precedence over those in config/application.rb.
 
   # Code is not reloaded between requests.
@@ -94,14 +91,14 @@ Rails.application.configure do
 
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.perform_deliveries = true
-  config.action_mailer.default_url_options = { host: config.app_domain }
+  config.action_mailer.default_url_options = { host: APP_CONFIG["app_domain"] }
   config.action_mailer.smtp_settings = {
-    address: 'smtp.mandrillapp.com', 
-    port: '587',
+    address:              'smtp.mandrillapp.com', 
+    port:                 '587',
     enable_starttls_auto: true,
-    user_name: ENV['MANDRILL_USER'],
-    password: ENV['MANDRILL_SECRET'],
-    authentication: 'login',
-    domain: config.app_domain
+    user_name:            APP_CONFIG["mandrill_user"],
+    password:             ENV['MANDRILL_SECRET'],
+    authentication:       'login',
+    domain:               APP_CONFIG["app_domain"]
   }
 end

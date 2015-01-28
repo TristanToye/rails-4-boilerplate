@@ -45,6 +45,8 @@ gem 'omniauth-linkedin'
 
 # Core Admin Panel
 gem 'rails_admin'
+# Slack Support For Notifications
+gem 'slack-poster'
 
 # =======================
 # UI GEMS
