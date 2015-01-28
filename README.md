@@ -11,6 +11,7 @@ A demo can be found here, it may take a second to load: [https://rails-4-boilerp
 * Email SMTP - simple config with Mandrill(https://mandrillapp.com)
 * [Slack Notifications](https://github.com/rikas/slack-poster)
 * Basic Support Form - email & Slack notifications for multiple teams
+* [Rails Admin](https://github.com/sferik/rails_admin) - out of the box admin UI
 * [Bootstrap Sass](https://github.com/twbs/bootstrap-sass)
 * [FontAwesome Sass](https://github.com/FortAwesome/font-awesome-sass)
 * [Rspec Test Suite](https://github.com/rspec/rspec) (Factory Girl, Capybara, Faker, etc.)
@@ -185,6 +186,14 @@ In some cases you may need to tell Rails what environment to use for database co
 ```html
 RAILS_ENV=test rake db:test:prepare
 ```
+
+## Using Rails Admin panel
+
+[Rails Admin](https://github.com/sferik/rails_admin) generates a basic admin panel that lets you CRUD any resource and is fairly easy to extend.
+
+We have added an admin boolean to the users table to indicate if that user has certain permissions. Devise does work for multiple user types if you want to make a seperate admin model, but for simplicity we have decided to use this user setting.
+
+The default admin panel can be found at `yourdomain.com/admin` The first user to visit this url is made an admin. After that you can with make another user an admin by using the admin panel to update the user record, or update the user from the rails console.
 
 ## Running the Test Suite
 
