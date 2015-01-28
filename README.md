@@ -9,10 +9,12 @@ A demo can be found here, it may take a second to load: [https://rails-4-boilerp
 * [Devise](https://github.com/plataformatec/devise) - Users setup & ready to go
 * [Omniauth Multiauth](https://github.com/intridea/omniauth) - Facbook, Twitter, & Linkedin ready to rock
 * Email SMTP - simple config with Mandrill(https://mandrillapp.com)
+* [Slack Notifications](https://github.com/rikas/slack-poster)
+* Basic Support Form - email & Slack notifications for multiple teams
 * [Bootstrap Sass](https://github.com/twbs/bootstrap-sass)
 * [FontAwesome Sass](https://github.com/FortAwesome/font-awesome-sass)
 * [Rspec Test Suite](https://github.com/rspec/rspec) (Factory Girl, Capybara, Faker, etc.)
-* [Capistrano](https://github.com/capistrano/capistrano)
+* [Capistrano](https://github.com/capistrano/capistrano) - automated deployment
 * [Check the Gemfile for more!](https://github.com/TristanToye/rails-4-boilerplate/blob/master/Gemfile)
 
 ## How do I set this up?
@@ -25,20 +27,33 @@ git clone https://github.com/TristanToye/rails-4-boilerplate.git
 
 Run `bundle install` to install all the gems we are using.
 
+Before we can run the app we need to set some environment variables for various services.
+
 ### Configuration
 
-Locally we are using [dotenv](https://github.com/bkeepers/dotenv), which allows us to load all the environment varibles we are using for most config functions in one file - making it easy to keep track of. You can use this in production as well, but make sure you gitignore the local file (it is in gitignore by default for this boilerplate).
+Locally we are using [dotenv](https://github.com/bkeepers/dotenv) for our secret keys, which allows us to load all the environment varibles we are using for most config functions in one file - making it easy to keep track of. You can use this in production as well, but make sure you gitignore the local file (it is in gitignore by default for this boilerplate).
 
 Create a `.env` file in the root of the repo, we will use this to save our environment variables as we go through config.
+
+For non-secret config we are using a YAML file found in `config/global_config.yml` - this file is used to set basic global constants that are used throughout the app. I will walk you through each part to keep it as simple as possible.
+
+### General App Config
+
+We need to set the app_namm & app_domain in `global_config.yml`
+
+```ruby
+app_name		: 'Your App Name'
+app_domain	: 'yoursite.com'
+```
 
 ### Configure Omniauth
 
 Omniauth is a authentication library that has many great gems that allow you to quickly add different authentication options to your project. Omniauth is pre-installed and the database is setup to allow for users to signin through multiple social accounts.
 
-To get started; in our .env we want to set a default email address that will send notifications to users (password reset, welcome message, etc.)
+To get started; in `global_config.yml` we want to set a default email address that will send notifications to users (password reset, welcome message, etc.)
 
-```html
-DEVISE_EMAIL_SENDER=info@yourdomain.com
+```ruby
+default_email_address: 'general_email@email.com'
 ```
 
 #### Twitter Login
@@ -51,62 +66,94 @@ If you want to use Twitter auth in your app uncomment this line from `config/ini
 
 Next, get/create keys for your Twitter app [here](https://apps.twitter.com/).
 
-Finally, set the environment variables in our `.env`
+We need to add the Id to our `global_config.yml`
+
+```ruby
+twitter_app_id: 'xxxxxxxx'
+```
+
+Finally, set the secret in our `.env`
 
 ```html
-TWITTER_APP_ID=YOUR_APP_ID
 TWITTER_APP_SECRET=YOUR_APP_SECRET
 ```
 
 #### Facebook Login
 
-If you want to use Facebook auth in your app uncomment this line from `config/initializers/devise.rb`
+Same process as Twitter - get/create keys for your Facebook app [here](https://developers.facebook.com).
 
-```ruby
-# config.omniauth :facebook, ENV["FACEBOOK_APP_ID"], ENV["FACEBOOK_APP_SECRET"
-```
-
-Next, get/create keys for your Facebook app [here](https://developers.facebook.com).
-
-Finally, set the environment variables in our `.env`
-
-```html
-FACEBOOK_APP_ID=YOUR_APP_ID
-FACEBOOK_APP_SECRET=YOUR_APP_SECRET
-```
 
 #### LinkedIn Login
 
-If you want to use LinkedIn auth in your app uncomment this line from `config/initializers/devise.rb`
-
-```ruby
-# config.omniauth :linkedin, ENV["LINKEDIN_APP_ID"], ENV["LINKEDIN_APP_SECRET"]
-```
-
-Next, get/create keys for your LinkedIn app [here](https://developer.linkedin.com/).
-
-Finally, set the environment variables in our `.env`
-
-```html
-LINKEDIN_APP_ID=YOUR_APP_ID
-LINKEDIN_APP_SECRET=YOUR_APP_SECRET
-```
+Same process as Twitter - get/create keys for your LinkedIn app [here](https://developer.linkedin.com/).
 
 ### Configure Email Via SMTP
 
 We recommend you send your emails through [Mandrill](https://mandrillapp.com/) it's free for low usage and super easy to setup.
 
-Generate a new API key and add it to our `.env`
+Add your Mandrill account email to `global_config.yml`
+
+```ruby
+mandrill_user: 'general_email@email.com'
+```
+
+Generate a new [API key on Mandrill's site](https://mandrillapp.com/settings/index/) and add it to our `.env`
 
 ```html
-MANDRILL_USER=youremail@email.com
 MANDRILL_SECRET=YOUR_SECRET
 ```
 
-Next, we need to add the domain we are using to send from - for link purposes in emails. Add this to you `.env` file:
+### Slack & Support Email
+
+We have included a Slack webhook gem to make setting up live notifications from you app super easy. Your whole team can know what is happening in app, get critical updates on the go, and keep their inbox empty. You will need to add an 'Incoming Webhook' integration for this to work.
+
+We will add the Slack Token for the inegration to our `.env` file:
 
 ```html
-APP_DOMAIN=yourdomain.com
+SLACK_TOKEN=xxxxxxxx
+```
+Next, update the options avaliable for sending messages in `global_config.yml`
+
+```ruby
+# Slack Team name
+slack_team: 'team-name'
+
+# Default Icon for Slack Sending Messages
+slack_icon_url: 'https://github.com/apple-touch-icon-144.png'
+
+# Default Slack User to send natifications as
+slack_user: 'Rails Bot'
+
+# Default contacts for technical request
+technical_slack_channel: '#technical'
+
+# Default contacts for feedback
+feedback_slack_channel: '#feedback'
+
+# Default for all other notifications
+default_slack_channel: '#general'
+```
+When sending notifications there are many more options & ways to make this more dynamic for your needs - sending users profile images as icons for example - refer to the [docs here.](https://github.com/rikas/slack-poster)
+
+If you don't want to use Slack we have included an option for that as well, simple swap the following to false:
+
+```ruby
+use_slack: true
+```
+
+#### Email Support
+
+For email support we have 3 different default teams to send support emails to. Update where to send these in `global_config.yml`
+
+```ruby
+# Default contacts for technical request
+technical_support_email: 'tech_team@email.com'
+
+# Default contacts for feedback
+feedback_support_email: 'support_team@email.com'
+
+# Default for all other emails & notifications
+default_email_address: 'general_email@email.com'
 ```
 
 ### Database Connections
@@ -222,4 +269,4 @@ DigitalOcean has by far the best documentation for setting up the stack we use. 
 
 ## Other things coming soon:
 
-* How to run the test suite
+* How to get to the moon on Rails
