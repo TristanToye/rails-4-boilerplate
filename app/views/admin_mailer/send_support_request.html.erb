@@ -1,12 +1,96 @@
-<html>
-<head>
-	<title></title>
-</head>
-<body>
-	<h2><%= @from %> has sent a support request!</h2>
-	<p><small>They need help with:</small></p>
-	<p><%= @message %></p>
-	<p><%= @is_user %></p>
-	<p><strong>Please get back to them asap!</strong></p>
-</body>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+<!-- NAME: 1 COLUMN -->
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= @from %> has sent a support request!</title>
+    <style type="text/css">
+      .btn-success {
+        color: white;
+        background-color: #28c0f7;
+        border-color: #4cae4c;
+      }
+      .btn-success:hover {
+        opacity: 0.6;
+      }
+      .btn {
+        display: inline-block;
+        margin-bottom: 0;
+        font-weight: normal;
+        text-align: center;
+        vertical-align: middle;
+        cursor: pointer;
+        background-image: none;
+        border: 1px solid transparent;
+        white-space: nowrap;
+        padding: 10px 16px;
+        font-size: 18px;
+        line-height: 1.428571429;
+        border-radius: 4px;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+      a{
+        text-decoration: none;
+      }
+      h3{
+        margin-top: 0;
+      }
+    </style>
+  </head>
+  <body leftmargin="0" marginwidth="0" topmargin="0" marginheight="0" offset="0" style="height: 100% !important; width: 100% !important; -ms-text-size-adjust: 100%; -webkit-text-size-adjust: none !important; min-width: 100% !important; background-color: #F2F2F2; margin: 0; padding: 0;" bgcolor="#F2F2F2">&#13;
+    <center>&#13;
+      <table align="center" border="0" cellpadding="0" cellspacing="0" height="100%" width="100%" id="bodyTable" style="height: 100% !important; width: 100% !important; border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt; -ms-text-size-adjust: 100%; -webkit-text-size-adjust: none !important; background-color: #F2F2F2; margin: 0; padding: 0;" bgcolor="#F2F2F2"><tr><td align="center" valign="top" id="bodyCell" style="height: 100% !important; width: 100% !important; mso-table-lspace: 0pt; mso-table-rspace: 0pt; -ms-text-size-adjust: 100%; -webkit-text-size-adjust: none !important; border-top-width: 0; margin: 0; padding: 10px;">&#13;
+            <!-- BEGIN TEMPLATE // -->&#13;
+            <table border="0" cellpadding="0" cellspacing="0" width="600" id="templateContainer" style="border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt; -ms-text-size-adjust: 100%; -webkit-text-size-adjust: none !important; max-width: 600px !important; width: 100% !important; border: 0;"><tr><td align="center" valign="top" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; -ms-text-size-adjust: 100%; -webkit-text-size-adjust: none !important;">&#13;
+                  <!-- BEGIN PREHEADER // -->&#13;
+                  <table border="0" cellpadding="0" cellspacing="0" width="600" id="templatePreheader" style="border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt; -ms-text-size-adjust: 100%; -webkit-text-size-adjust: none !important; border-top-width: 0; border-bottom-width: 0; max-width: 600px !important; width: 100% !important; display: block !important; background-color: #FFFFFF;" bgcolor="#FFFFFF"><tr><td valign="top" class="preheaderContainer" style="padding-top: 9px; mso-table-lspace: 0pt; mso-table-rspace: 0pt; -ms-text-size-adjust: 100%; -webkit-text-size-adjust: none !important;"><table border="0" cellpadding="0" cellspacing="0" width="100%" class="mcnTextBlock" style="border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt; -ms-text-size-adjust: 100%; -webkit-text-size-adjust: none !important;"><tbody class="mcnTextBlockOuter"><tr><td valign="top" class="mcnTextBlockInner" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; -ms-text-size-adjust: 100%; -webkit-text-size-adjust: none !important;">&#13;
+&#13;
+                              <table align="left" border="0" cellpadding="0" cellspacing="0" width="366" class="mcnTextContentContainer" style="border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt; -ms-text-size-adjust: 100%; -webkit-text-size-adjust: none !important; width: 100% !important;"><tbody><tr><td valign="top" class="mcnTextContent" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; -ms-text-size-adjust: 100%; -webkit-text-size-adjust: none !important; color: #606060; font-family: Helvetica; font-size: 14px !important; line-height: 115% !important; text-align: left; padding: 9px 18px;" align="left">&#13;
+&#13;
+                                    <%= @from %> has sent a support request!&#13;
+                                  </td>&#13;
+                                </tr></tbody></table></td>&#13;
+                          </tr></tbody></table></td>&#13;
+                    </tr></table><!-- // END PREHEADER --></td>&#13;
+              </tr><tr><td align="center" valign="top" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; -ms-text-size-adjust: 100%; -webkit-text-size-adjust: none !important;">&#13;
+                  <!-- BEGIN HEADER // -->&#13;
+                  <table border="0" cellpadding="0" cellspacing="0" width="600" id="templateHeader" style="border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt; -ms-text-size-adjust: 100%; -webkit-text-size-adjust: none !important; border-top-width: 0; border-bottom-width: 0; max-width: 600px !important; width: 100% !important; background-color: #FFFFFF;" bgcolor="#FFFFFF"><tr><td valign="top" class="headerContainer" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; -ms-text-size-adjust: 100%; -webkit-text-size-adjust: none !important;"><table border="0" cellpadding="0" cellspacing="0" width="100%" class="mcnImageBlock" style="border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt; -ms-text-size-adjust: 100%; -webkit-text-size-adjust: none !important;"><tbody class="mcnImageBlockOuter"><tr><td valign="top" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; -ms-text-size-adjust: 100%; -webkit-text-size-adjust: none !important; padding: 9px;" class="mcnImageBlockInner">&#13;
+                              <table align="left" width="100%" border="0" cellpadding="0" cellspacing="0" class="mcnImageContentContainer" style="border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt; -ms-text-size-adjust: 100%; -webkit-text-size-adjust: none !important;"><tbody><tr><td class="mcnImageContent" valign="top" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; -ms-text-size-adjust: 100%; -webkit-text-size-adjust: none !important; padding: 0 9px;">&#13;
+&#13;
+                                    <img align="left" alt="" src="<%= image_path 'ruby-on-rails.jpg' %>" width="564" style="max-width: 1848px; padding-bottom: 0; display: inline !important; vertical-align: bottom; outline: none; text-decoration: none; -ms-interpolation-mode: bicubic; width: 100% !important; border: 0;" class="mcnImage" /></td>&#13;
+                                </tr></tbody></table></td>&#13;
+                          </tr></tbody></table></td>&#13;
+                    </tr></table><!-- // END HEADER --></td>&#13;
+              </tr><tr><td align="center" valign="top" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; -ms-text-size-adjust: 100%; -webkit-text-size-adjust: none !important;">&#13;
+                  <!-- BEGIN BODY // -->&#13;
+                  <table border="0" cellpadding="0" cellspacing="0" width="600" id="templateBody" style="border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt; -ms-text-size-adjust: 100%; -webkit-text-size-adjust: none !important; border-top-width: 0; border-bottom-width: 0; max-width: 600px !important; width: 100% !important; background-color: #FFFFFF;" bgcolor="#FFFFFF"><tr><td valign="top" class="bodyContainer" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; -ms-text-size-adjust: 100%; -webkit-text-size-adjust: none !important;"><table border="0" cellpadding="0" cellspacing="0" width="100%" class="mcnTextBlock" style="border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt; -ms-text-size-adjust: 100%; -webkit-text-size-adjust: none !important;"><tbody class="mcnTextBlockOuter"><tr><td valign="top" class="mcnTextBlockInner" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; -ms-text-size-adjust: 100%; -webkit-text-size-adjust: none !important;">&#13;
+&#13;
+                              <table align="left" border="0" cellpadding="0" cellspacing="0" width="600" class="mcnTextContentContainer" style="border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt; -ms-text-size-adjust: 100%; -webkit-text-size-adjust: none !important; width: 100% !important;"><tbody><tr><td valign="top" class="mcnTextContent" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; -ms-text-size-adjust: 100%; -webkit-text-size-adjust: none !important; color: #606060; font-family: Helvetica; font-size: 18px !important; line-height: 125% !important; text-align: left; padding: 9px 18px;" align="left">
+                                      	<h2><%= @from %> has sent a support request!</h2>
+																				<p><small>They need help with:</small></p>
+																				<p><%= @message %></p>
+																				<p><%= @is_user %></p>
+																				<p><strong>Please get back to them asap!</strong></p>
+                                    </td>&#13;
+                                  </tr></tbody></table></td>&#13;
+                            </tr></tbody></table></td>&#13;
+                      </tr></table><!-- // END BODY --></td>&#13;
+                </tr><tr><td align="center" valign="top" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; -ms-text-size-adjust: 100%; -webkit-text-size-adjust: none !important;">&#13;
+                    <!-- BEGIN FOOTER // -->&#13;
+                    <table border="0" cellpadding="0" cellspacing="0" width="600" id="templateFooter" style="border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt; -ms-text-size-adjust: 100%; -webkit-text-size-adjust: none !important; border-top-width: 0; border-bottom-width: 0; max-width: 600px !important; width: 100% !important; background-color: #FFFFFF;" bgcolor="#FFFFFF"><tr><td valign="top" class="footerContainer" style="padding-bottom: 9px; mso-table-lspace: 0pt; mso-table-rspace: 0pt; -ms-text-size-adjust: 100%; -webkit-text-size-adjust: none !important;"><table border="0" cellpadding="0" cellspacing="0" width="100%" class="mcnTextBlock" style="border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt; -ms-text-size-adjust: 100%; -webkit-text-size-adjust: none !important;"><tbody class="mcnTextBlockOuter"><tr><td valign="top" class="mcnTextBlockInner" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; -ms-text-size-adjust: 100%; -webkit-text-size-adjust: none !important;">&#13;
+&#13;
+                                <table align="left" border="0" cellpadding="0" cellspacing="0" width="600" class="mcnTextContentContainer" style="border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt; -ms-text-size-adjust: 100%; -webkit-text-size-adjust: none !important; width: 100% !important;"><tbody><tr><td valign="top" class="mcnTextContent" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; -ms-text-size-adjust: 100%; -webkit-text-size-adjust: none !important; color: #606060; font-family: Helvetica; font-size: 14px !important; line-height: 115% !important; text-align: left; padding: 9px 18px;" align="left">&#13;
+&#13;
+                                      <em>Copyright © 2014, Rails 4 Boilerplate.</em>&#13;
+                                      <br /></td>&#13;
+                                  </tr></tbody></table></td>&#13;
+                            </tr></tbody></table></td>&#13;
+                      </tr></table><!-- // END FOOTER --></td>&#13;
+                </tr></table><!-- // END TEMPLATE --></td>&#13;
+          </tr></table></center>&#13;
+    </body>
 </html>

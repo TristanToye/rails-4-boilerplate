@@ -1,17 +1,20 @@
-<h1><%= icon('bullhorn') %> Welcome to the Rails 4 Boilerplate demo.</h1>
-<p>The homepage for this demo can be found here: <a href="https://github.com/TristanToye/rails-4-boilerplate" target="_blank" title="GitHub Repo">https://github.com/TristanToye/rails-4-boilerplate</a></p>
+<%= image_tag 'ruby-on-rails.jpg' %>
+<div class="text-center">
+	<h1><%= icon('bullhorn') %> Welcome to the Rails 4 Boilerplate demo.</h1>
+	<p>The homepage for this demo can be found here: <a href="https://github.com/TristanToye/rails-4-boilerplate" target="_blank" title="GitHub Repo">https://github.com/TristanToye/rails-4-boilerplate</a></p>
 
-<% if !current_user %>
-	<a href="<%= new_user_registration_path %>" class="btn btn-primary">Sign Up</a> <a href="<%= new_user_session_path %>" class="btn btn-default">Sign In</a>
-	<span class="btn btn-default" data-toggle="modal" data-target="#supportModal">Support</span>
-<% else %>
-	<h3>Welcome <%= current_user.email %></h3>
-	<p><%= link_to "Update Profile", edit_user_path(id: current_user.id), class: "btn btn-default"%> 
-		<%= link_to "Edit Account", edit_user_registration_path, class: "btn btn-default"%> 
+	<% if !current_user %>
+		<a href="<%= new_user_registration_path %>" class="btn btn-primary">Sign Up</a> <a href="<%= new_user_session_path %>" class="btn btn-default">Sign In</a>
 		<span class="btn btn-default" data-toggle="modal" data-target="#supportModal">Support</span>
-		<%= link_to 'Admin Panel', rails_admin_path, class: "btn btn-default" if current_user.is_admin? %> 
-		<%= link_to 'Logout', destroy_user_session_path, :method => :delete , class: "btn btn-danger" %>
-	</p>
-<% end %>
+	<% else %>
+		<h3>Welcome <%= current_user.email %></h3>
+		<p><%= link_to "Update Profile", edit_user_path(id: current_user.id), class: "btn btn-default"%> 
+			<%= link_to "Edit Account", edit_user_registration_path, class: "btn btn-default"%> 
+			<span class="btn btn-default" data-toggle="modal" data-target="#supportModal">Support</span>
+			<%= link_to 'Admin Panel', rails_admin_path, class: "btn btn-default" if current_user.is_admin? %> 
+			<%= link_to 'Logout', destroy_user_session_path, :method => :delete , class: "btn btn-danger" %>
+		</p>
+	<% end %>
+</div>
 
 <%= render 'shared/modals/send_support_request' %>
