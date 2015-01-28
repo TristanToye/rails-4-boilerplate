@@ -8,7 +8,7 @@ A demo can be found here, it may take a second to load: [https://rails-4-boilerp
 * [Rails 4](https://github.com/rails/rails)
 * [Devise](https://github.com/plataformatec/devise) - Users setup & ready to go
 * [Omniauth Multiauth](https://github.com/intridea/omniauth) - Facbook, Twitter, & Linkedin ready to rock
-* Email SMTP - simple config with Mandrill(https://mandrillapp.com)
+* Email SMTP - simple config with [Mandrill](https://mandrillapp.com)
 * [Slack Notifications](https://github.com/rikas/slack-poster)
 * Basic Support Form - email & Slack notifications for multiple teams
 * [Rails Admin](https://github.com/sferik/rails_admin) - out of the box admin UI
@@ -46,8 +46,8 @@ For non-secret config we are using a YAML file found in `config/global_config.ym
 We need to set the app_namm & app_domain in `global_config.yml`
 
 ```ruby
-app_name		: 'Your App Name'
-app_domain	: 'yoursite.com'
+app_name: 'Your App Name'
+app_domain: 'yoursite.com'
 ```
 
 ### Configure Omniauth
