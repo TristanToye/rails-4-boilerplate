@@ -4,7 +4,7 @@
 
 # Default domain name to be used
 app_name										: 'Rails 4 Boilerplate'
-app_domain									: 'yoursite.com'
+app_domain									: 'rails-4-boilerplate.herokuapp.com'
 
 # :::::::::::::::::
 # Social Login

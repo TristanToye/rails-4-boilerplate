@@ -1,4 +1,5 @@
 class AdminMailer < ActionMailer::Base
+  include Roadie::Rails::Automatic
   default from: "#{APP_CONFIG['app_name']} <#{APP_CONFIG['default_email_address']}>"
 
   def send_support_request(to, from, message, is_user)
