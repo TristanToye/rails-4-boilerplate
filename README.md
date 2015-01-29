@@ -20,6 +20,8 @@ A demo can be found here, it may take a second to load: [https://rails-4-boilerp
 * [Capistrano](https://github.com/capistrano/capistrano) - automated deployment
 * [Check the Gemfile for more!](https://github.com/TristanToye/rails-4-boilerplate/blob/master/Gemfile)
 
+![Features Gif](https://raw.githubusercontent.com/TristanToye/rails-4-boilerplate/master/app/assets/images/ruby-on-rails.gif "Rails 4 Boilerplate Features")
+
 ## How do I set this up?
 
 Clone the repo to your local machine and cd:
