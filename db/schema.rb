@@ -26,7 +26,6 @@ ActiveRecord::Schema.define(version: 20150129184051) do
     t.string   "slack_team"
     t.string   "slack_icon_url"
     t.string   "slack_user"
-    t.string   "mandrill_user"
     t.string   "technical_support_email"
     t.string   "technical_slack_channel"
     t.string   "feedback_support_email"
@@ -62,10 +61,10 @@ ActiveRecord::Schema.define(version: 20150129184051) do
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
     t.string   "unconfirmed_email"
-    t.datetime "created_at"
-    t.datetime "updated_at"
     t.string   "name"
     t.boolean  "admin",                  default: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree

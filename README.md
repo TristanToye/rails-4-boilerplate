@@ -29,6 +29,8 @@ cd rails-4-boilerplate
 
 Run `bundle install` to install all the gems we are using.
 
+[Configure your local database connection](#database_config)
+
 You can now run the app as normal: `rails s`
 
 However, to use everything properly we need to set some environment variables & configuration for various services.
@@ -41,6 +43,8 @@ Create a `.env` file in the root of the repo, we will use this to save our envir
 
 For non-secret config we are using a YAML file found in `config/global_config.yml` - this file is used to set basic global constants that are used throughout the app. I will walk you through each part to keep it as simple as possible.
 
+__UPDATE:__ you can now set almost all config variables (non-secrets) in the (admin panel](#rails_admin). The app will always use the first existing record of the Global Config model. When the app starts or the record is updated it will set all config variables to ones present in the database instead of the global_config.yml
+
 ### General App Config
 
 We need to set the app_namm & app_domain in `global_config.yml`
@@ -48,6 +52,36 @@ We need to set the app_namm & app_domain in `global_config.yml`
 ```ruby
 app_name: 'Your App Name'
 app_domain: 'yoursite.com'
+```
+
+### <a name="database_config"></a>Database Connections
+
+In `config/database.yml` we need to change the database names to what you want to use for your app. This app is setup using a database located on the same machine. 
+
+We are again using environment variables to set the database password for production. In your `.env` file you will need to add:
+
+```html
+DATABASE_PASSWORD=YOUR_PASSWORD
+```
+
+By default we are using [Postgresql](http://www.postgresql.org/) for development, test, & production evironments. Rails ships with sqlite by default for development, but I highly recommend using the same database in development, testing, & production to ensure you are actually working with & testing what you are putting in production. To run Postgresql on OSX I highly recommend [this app](http://postgresapp.com/).
+
+Once you have added your correct credentials, and have Postgres running, we can go ahead and create our databases locally:
+
+```html
+rake db:create db:migrate
+```
+
+To get all the tests working remeber to run this before each testing sessions - it will ensure your test database is inline with the development database structure:
+
+```html
+rake db:test:prepare
+```
+
+In some cases you may need to tell Rails what environment to use for database commands, for example:
+
+```html
+RAILS_ENV=test rake db:test:prepare
 ```
 
 ### Configure Omniauth
@@ -160,43 +194,17 @@ feedback_support_email: 'support_team@email.com'
 default_email_address: 'general_email@email.com'
 ```
 
-### Database Connections
-
-In `config/database.yml` we need to change the database names to what you want to use for your app. This app is setup using a database located on the same machine. 
-
-We are again using environment variables to set the database password for production. In your `.env` file you will need to add:
-
-```html
-DATABASE_PASSWORD=YOUR_PASSWORD
-```
-
-By default we are using [Postgresql](http://www.postgresql.org/) for development, test, & production evironments. Rails ships with sqlite by default, but I highly recommend using the same database in development, testing, & production to ensure you are actually working with & testing what you are putting in production. To run Postgresql on OSX I highly recommend [this app](http://postgresapp.com/).
-
-Once you have added your correct credentials, and have Postgres running, we can go ahead and create our databases locally:
-
-```html
-rake db:create db:migrate
-```
-
-To get all the tests working remeber to run this before each testing sessions - it will ensure your test database is inline with the development database structure:
-
-```html
-rake db:test:prepare
-```
-
-In some cases you may need to tell Rails what environment to use for database commands, for example:
-
-```html
-RAILS_ENV=test rake db:test:prepare
-```
-
-## Using Rails Admin panel
+## <a name="rails_admin"></a>Using Rails Admin panel
 
 [Rails Admin](https://github.com/sferik/rails_admin) generates a basic admin panel that lets you CRUD any resource and is fairly easy to extend.
 
 We have added an admin boolean to the users table to indicate if that user has certain permissions. Devise does work for multiple user types if you want to make a seperate admin model, but for simplicity we have decided to use this user setting.
 
 The default admin panel can be found at `yourdomain.com/admin` The first user to visit this url is made an admin. After that you can with make another user an admin by using the admin panel to update the user record, or update the user from the rails console.
+
+__UPDATE:__ you can now set almost all config variables in the admin panel. The app will always use the first existing record of the Global Config model. When the app starts or the record is updated it will set all config variables to ones present in the database instead of the global_config.yml
+
+NOTE: Mandrill user for email SMTP will still need to be set in global_config.yml for intialization reasons.
 
 ## Running the Test Suite
 
