@@ -1,20 +1,57 @@
-<%= image_tag 'ruby-on-rails.jpg' %>
-<div class="text-center">
-	<h1><%= icon('bullhorn') %> Welcome to the Rails 4 Boilerplate demo.</h1>
-	<p>The homepage for this demo can be found here: <a href="https://github.com/TristanToye/rails-4-boilerplate" target="_blank" title="GitHub Repo">https://github.com/TristanToye/rails-4-boilerplate</a></p>
+<style type="text/css">
+	html,
+	body {
+	  height: 100%;
+	  background-color: #333;
+	}
+</style>
 
-	<% if !current_user %>
-		<a href="<%= new_user_registration_path %>" class="btn btn-primary">Sign Up</a> <a href="<%= new_user_session_path %>" class="btn btn-default">Sign In</a>
-		<span class="btn btn-default" data-toggle="modal" data-target="#supportModal">Support</span>
-	<% else %>
-		<h3>Welcome <%= current_user.email %></h3>
-		<p><%= link_to "Update Profile", edit_user_path(id: current_user.id), class: "btn btn-default"%> 
-			<%= link_to "Edit Account", edit_user_registration_path, class: "btn btn-default"%> 
-			<span class="btn btn-default" data-toggle="modal" data-target="#supportModal">Support</span>
-			<%= link_to 'Admin Panel', rails_admin_path, class: "btn btn-default" if current_user.is_admin? %> 
-			<%= link_to 'Logout', destroy_user_session_path, :method => :delete , class: "btn btn-danger" %>
-		</p>
-	<% end %>
+<div class="landing-page">
+	<div class="site-wrapper">
+
+	  <div class="site-wrapper-inner">
+
+	    <div class="cover-container">
+
+	      <div class="masthead clearfix">
+	        <div class="inner">
+	          <h3 class="masthead-brand"><%= APP_CONFIG["app_name"] %></h3>
+	          <nav>
+	            <ul class="nav masthead-nav">
+	              <li class="active"><a href="#">Home</a></li>
+	              <li><a href="#">Features</a></li>
+	              <li><a href="https://twitter.com/TristanToye" target="_blank">Contact</a></li>
+	            </ul>
+	          </nav>
+	        </div>
+	      </div>
+
+	      <div class="inner cover">
+	        <h1 class="cover-heading">Rails 4 Boilerplate demo.</h1>
+	        <p class="lead">The homepage for this demo can be found here: <a href="https://github.com/TristanToye/rails-4-boilerplate" target="_blank" title="GitHub Repo">https://github.com/TristanToye/rails-4-boilerplate</a></p>
+	        <p class="lead">
+	          <% if !current_user %>
+	          	<%= link_to "Sign Up", new_user_registration_path, class: "btn btn-primary" %> <%= link_to "Sign In", new_user_session_path, class: "btn btn-default" %>
+						<% else %>
+							<h3>Welcome <%= current_user.email %></h3>
+							<p><%= link_to "Update Profile", edit_user_path(id: current_user.id), class: "btn btn-default"%> 
+								<%= link_to "Edit Account", edit_user_registration_path, class: "btn btn-default"%> 
+								<%= link_to 'Admin Panel', rails_admin_path, class: "btn btn-default" if current_user.is_admin? %> 
+								<%= link_to 'Logout', destroy_user_session_path, :method => :delete , class: "btn btn-danger" %>
+							</p>
+						<% end %>
+	        </p>
+	      </div>
+
+	      <div class="mastfoot">
+	        <div class="inner">
+	          <p><a href="#" data-toggle="modal" data-target="#supportModal">Support</a></p>
+	        </div>
+	      </div>
+
+	    </div>
+
+	  </div>
+
+	</div>
 </div>
-
-<%= render 'shared/modals/send_support_request' %>

@@ -282,3 +282,5 @@ DigitalOcean has by far the best documentation for setting up the stack we use. 
 ## Other things coming soon:
 
 * How to get to the moon on Rails
+* Gravatar lookup feature
+* Built in dashboard

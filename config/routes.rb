@@ -22,9 +22,9 @@ Rails.application.routes.draw do
   match '/users/:id/finish_signup' => 'users#finish_signup', via: [:get, :patch], :as => :finish_signup
 
   resources :users, except: [:show, :new, :create] do
-
-  # Edit Non-authentication actions
-
+    collection do
+      match "/dashboard", to: "users#index", via: [:get, :post]
+    end
   end
 
   # The priority is based upon order of creation: first created -> highest priority.

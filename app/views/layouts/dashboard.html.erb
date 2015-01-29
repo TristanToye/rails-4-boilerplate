@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<%= render 'layouts/head' %>
+  <style type="text/css">body {padding-top: 50px;}</style>
+	<body class="dashboard">
+
+   <!-- NAV BAR -->
+		<%= render 'layouts/partials/dashboard/nav' %>
+
+    <!-- MAIN CONTENT -->
+    <div class="container-fluid">
+      <div class="row">
+
+        <!-- SIDEBAR NAV -->
+        <div class="col-sm-3 col-md-2 sidebar">
+          <%= render 'layouts/partials/dashboard/sidebar' %>
+        </div>
+
+        <!-- MAIN CONTENT -->
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+          <!-- ALERTS -->
+          <div class="container">
+            <div class="row">
+              <div class="col-xs-12">
+                <% if notice %>
+                  <p class="notice"><%= notice %></p>
+                <% end %>
+                <% if alert %>
+                  <p class="alert"><%= alert %></p>
+                <% end %>
+              </div>
+            </div>
+          </div>
+
+          <!-- PAGES -->
+          <%= yield %>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- Include support form modal -->
+    <%= render 'shared/modals/send_support_request' %>
+
+	</body>
+</html>

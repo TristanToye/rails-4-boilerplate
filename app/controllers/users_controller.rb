@@ -1,5 +1,11 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :destroy]
+  layout :resolve_layout #Before rendering check which layout we should show
+  before_action :set_user, only: [:index, :show, :edit, :update, :destroy]
+
+  # After login go here
+  def index
+
+  end
 
   # GET /users/:id.:format
   def show
@@ -52,12 +58,30 @@ class UsersController < ApplicationController
   
   private
     def set_user
-      @user = User.find(params[:id])
+      if current_user
+        @user = current_user
+      elsif params[:id]
+        @user = User.find(params[:id])
+      end
+      # For Gravatar lookup
+      @email_hash = Digest::MD5.hexdigest(@user.email.strip)
     end
 
     def user_params
       accessible = [:name, :email] # extend with your own params
       accessible << [ :password, :password_confirmation ] unless params[:user][:password].blank?
       params.require(:user).permit(accessible)
+    end
+
+    private
+
+    # Determine layout based on action name
+    def resolve_layout
+      case action_name
+      when 'index'
+        'dashboard'
+      else
+        'application'
+      end
     end
 end
