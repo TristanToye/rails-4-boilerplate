@@ -1,5 +1,7 @@
 # Rails 4 Boilerplate
 
+![Rails Banner](https://raw.githubusercontent.com/TristanToye/rails-4-boilerplate/master/app/assets/images/ruby-on-rails.jpg "Rails 4 Boilerplate")
+
 This is a starting point for a simple user app in rails. This core set of gems requires very little config to get up and running.
 
 A demo can be found here, it may take a second to load: [https://rails-4-boilerplate.herokuapp.com/](https://rails-4-boilerplate.herokuapp.com/)
@@ -43,7 +45,7 @@ Create a `.env` file in the root of the repo, we will use this to save our envir
 
 For non-secret config we are using a YAML file found in `config/global_config.yml` - this file is used to set basic global constants that are used throughout the app. I will walk you through each part to keep it as simple as possible.
 
-__UPDATE:__ you can now set almost all config variables (non-secrets) in the (admin panel](#rails_admin). The app will always use the first existing record of the Global Config model. When the app starts or the record is updated it will set all config variables to ones present in the database instead of the global_config.yml
+__UPDATE:__ you can now set almost all config variables (non-secrets) in the [admin panel](#rails_admin). The app will always use the first existing record of the Global Config model. When the app starts or the record is updated it will set all config variables to ones present in the database instead of the global_config.yml
 
 ### General App Config
 
