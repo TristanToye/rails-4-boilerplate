@@ -2,7 +2,7 @@
 
 ![Rails Banner](https://raw.githubusercontent.com/TristanToye/rails-4-boilerplate/master/app/assets/images/ruby-on-rails.jpg "Rails 4 Boilerplate")
 
-This is a starting point for a simple user app in rails. This core set of gems requires very little config to get up and running.
+This is a starting point for a simple user app in rails. This core set of gems requires very little config to get up and running. The goal was to make this as simple as possible. Config all in one file, out of the box ready to rock user based app.
 
 A demo can be found here, it may take a second to load: [https://rails-4-boilerplate.herokuapp.com/](https://rails-4-boilerplate.herokuapp.com/)
 
@@ -20,7 +20,7 @@ A demo can be found here, it may take a second to load: [https://rails-4-boilerp
 * [Capistrano](https://github.com/capistrano/capistrano) - automated deployment
 * [Check the Gemfile for more!](https://github.com/TristanToye/rails-4-boilerplate/blob/master/Gemfile)
 
-![Features Gif](https://raw.githubusercontent.com/TristanToye/rails-4-boilerplate/master/app/assets/images/ruby-on-rails.gif "Rails 4 Boilerplate Features")
+![Features Gif](https://raw.githubusercontent.com/TristanToye/rails-4-boilerplate/master/app/assets/images/rails-4-boilerplate.gif "Rails 4 Boilerplate Features")
 
 ## How do I set this up?
 
