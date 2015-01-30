@@ -58,6 +58,14 @@ app_name: 'Your App Name'
 app_domain: 'yoursite.com'
 ```
 
+#### Secret Token
+
+Run `rake secret` in the console and copy the key, paste it in our `.env` file:
+
+```html
+SECRET_KEY_BASE=YOUR_LONG_KEY
+```
+
 ### <a name="database_config"></a>Database Connections
 
 In `config/database.yml` we need to change the database names to what you want to use for your app. This app is setup using a database located on the same machine. 
@@ -294,6 +302,5 @@ DigitalOcean has by far the best documentation for setting up the stack we use. 
 ## Other things coming soon:
 
 * How to get to the moon on Rails
-* Gravatar lookup feature
-* Built in dashboard
-* Layout Swapping
+* More test coverage
+* UI Dashboard improvment
