@@ -207,6 +207,8 @@ GEM
     roadie-rails (1.0.3)
       rails (>= 3.0, < 4.2)
       roadie (~> 3.0)
+    rspec-collection_matchers (1.0.0)
+      rspec-expectations (>= 2.99.0.beta1)
     rspec-core (3.1.7)
       rspec-support (~> 3.1.0)
     rspec-expectations (3.1.2)
@@ -300,6 +302,7 @@ DEPENDENCIES
   rails_12factor
   rails_admin
   roadie-rails
+  rspec-collection_matchers
   rspec-rails (~> 3.1.0)
   sass-rails (~> 4.0.3)
   sdoc (~> 0.4.0)

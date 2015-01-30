@@ -63,8 +63,12 @@ class UsersController < ApplicationController
       elsif params[:id]
         @user = User.find(params[:id])
       end
-      # For Gravatar lookup
-      @email_hash = Digest::MD5.hexdigest(@user.email.strip)
+      if @user
+        # For Gravatar lookup
+        @email_hash = Digest::MD5.hexdigest(@user.email.strip) 
+      else
+        redirect_to new_user_session_path, alert: 'Please sign in to view dashboard'
+      end
     end
 
     def user_params

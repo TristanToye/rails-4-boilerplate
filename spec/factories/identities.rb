@@ -2,8 +2,8 @@
 
 FactoryGirl.define do
   factory :identity do
-    user nil
-    provider "MyString"
-    uid "MyString"
+  	association :user
+  	provider 		"facebook"
+  	uid					{Faker::Lorem.characters([8,14])}
   end
 end

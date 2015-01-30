@@ -81,6 +81,7 @@ group :development, :test do
 end
 
 group :test do
+  gem "rspec-collection_matchers"
 	# Fake data generator
   gem "faker", "~> 1.4.3"
   # Simulate User Interactions
