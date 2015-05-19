@@ -1,6 +1,7 @@
 require File.expand_path('../boot', __FILE__)
 
 require 'rails/all'
+require 'yaml'
 
 APP_CONFIG = YAML.load_file("config/global_config.yml")
 
