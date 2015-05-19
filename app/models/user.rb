@@ -9,9 +9,6 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable, :confirmable, :omniauthable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  after_create  :create_dependencies #create all needed user associations after creating the user
-  after_destroy :destroy_dependencies #destroy all relevant associations after removing a user
-
   def self.find_for_oauth(auth, signed_in_resource = nil)
 
     # Get the identity and user if they exist
@@ -63,11 +60,4 @@ class User < ActiveRecord::Base
   end 
 
   protected
-    def destroy_dependencies
-      Identity.destroy_all(user: self)
-    end
-
-    def create_dependencies
-
-    end
 end

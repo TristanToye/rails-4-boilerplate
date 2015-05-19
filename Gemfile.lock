@@ -312,7 +312,7 @@ DEPENDENCIES
   pg
   rails (= 4.2.1)
   rails_12factor
-  rails_admin
+  rails_admin (>= 0.6.7)
   roadie-rails
   rspec-collection_matchers
   rspec-rails (>= 3.1.0)

@@ -33,9 +33,6 @@ RailsAdmin.config do |config|
   end
 end
 
-# Call rails_admin controller so we can customize it
-require "rails_admin/application_controller" 
-
 module RailsAdmin 
   class ApplicationController < ::ApplicationController 
     # Before loading the admin panel check if the user is an admin
