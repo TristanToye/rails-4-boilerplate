@@ -18,6 +18,7 @@ A demo can be found here, it may take a second to load: [https://rails-4-boilerp
 * [FontAwesome Sass](https://github.com/FortAwesome/font-awesome-sass)
 * [Rspec Test Suite](https://github.com/rspec/rspec) (Factory Girl, Capybara, Faker, etc.)
 * [Capistrano](https://github.com/capistrano/capistrano) - automated deployment
+* [Guard-Livereload](https://github.com/guard/guard-livereload) - Browser Reloading in Dev
 * [Check the Gemfile for more!](https://github.com/TristanToye/rails-4-boilerplate/blob/master/Gemfile)
 
 ![Features Gif](https://raw.githubusercontent.com/TristanToye/rails-4-boilerplate/master/app/assets/images/rails-4-boilerplate.gif "Rails 4 Boilerplate Features")
@@ -64,6 +65,14 @@ Run `rake secret` in the console and copy the key, paste it in our `.env` file:
 
 ```html
 SECRET_KEY_BASE=YOUR_LONG_KEY
+```
+
+#### Livereload 
+
+We are using guard livereload for dev. In development the browser will reload the site automatically. Very helpful for expediating design. To use this run the following in another terminal window:
+
+```html
+guard
 ```
 
 ### <a name="database_config"></a>Database Connections

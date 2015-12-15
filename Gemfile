@@ -102,6 +102,17 @@ end
 gem 'capistrano', '~> 3.4.0'
 
 # =======================
+# LIVE RELOAD FOR DEVELOPMENT
+# =======================
+
+group :development do
+  gem 'guard',            '~> 2.13.0',  :require => false
+  gem 'guard-livereload', '~> 2.5.0',   :require => false
+  gem 'rack-livereload',  '~> 0.3.16'
+  gem 'rb-fsevent',       '~> 0.9.6',   :require => false
+end
+
+# =======================
 # INACTIVE DEFAULTS
 # =======================
 
