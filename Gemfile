@@ -1,29 +1,47 @@
 source 'https://rubygems.org'
-ruby '2.2.3'
+ruby '2.3.1'
 
 # =======================
-# CONFIG 
+# CONFIG
 # =======================
 
-# Local ENV variables for testing & development
-gem 'dotenv-rails', :groups => [:development, :test]
+# Load ENV variables
+gem 'dotenv-rails', '>= 2.0.0', require: 'dotenv/rails-now'
 
 # =======================
 # RAILS CORE
 # =======================
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.2.5'
+gem 'rails', '4.2.6'
 # Use postgresql as the database for Active Record
-gem 'pg'
-# Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem 'jbuilder', '~> 2.3.0'
+gem 'pg', '0.18.2'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.1',          group: :doc
 # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-gem 'spring',        group: :development
+gem 'spring', '>= 1.3.6', group: :development
 # Makes running Rails easier - based on 12factor.net
-gem 'rails_12factor', group: :production
+gem 'rails_12factor', '>= 0.0.3', group: :production
+# webserver
+gem 'puma'
+
+# =======================
+# API
+# =======================
+
+# CORS managment for api access via js
+gem 'rack-cors', require: 'rack/cors'
+# Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
+gem 'jbuilder', '>= 2.3.0'
+# API for Ember apps
+gem 'active_model_serializers', '>=0.9.3'
+# Pagination
+gem 'kaminari', '0.16.3'
+# Search Queries
+# gem 'ransack', github: 'activerecord-hackery/ransack'
+gem 'ransack', '1.7.0'
+# http request library
+gem 'httparty', '>= 0.13.7'
 
 # =======================
 # AUTH & SOCIAL LOGINS
@@ -54,9 +72,13 @@ gem 'slack-poster'
 # =======================
 
 # Use jquery as the JavaScript library
-gem 'jquery-rails'
+gem 'jquery-rails', '>= 4.0.3'
+# Jquery UI
+gem 'jquery-ui-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
-gem 'turbolinks'
+gem 'turbolinks', '>= 2.5.3'
+# Make jquery on DOM ready work with turbolinks
+gem 'jquery-turbolinks', '>= 2.1.0'
 # Use Bootstrap Offical Sass Port
 gem 'bootstrap-sass', '~> 3.3.0'
 # Use FontAwesome Offical Sass Port
@@ -75,41 +97,70 @@ gem 'roadie-rails'
 # =======================
 
 group :development, :test do
-	# Test Framework we are using
-  gem "rspec-rails", "~> 3.4.0"
+  # Test Framework we are using
+  gem 'rspec-rails', '>= 3.2.1'
+  # Spring for faster gaurd test loading
+  gem 'spring-commands-rspec', '>= 1.0.4'
   # Fixtures replacement
-  gem "factory_girl_rails", "~> 4.5.0"
+  gem 'factory_girl_rails', '>= 4.5.0'
+
+  gem 'rspec-collection_matchers', '>= 1.1.2'
+  # Fake data generator
+  gem 'faker', '>= 1.6.1'
+  # Simulate User Interactions
+  gem 'capybara', '>= 2.4.4'
+  # Easily reset db between tests
+  gem 'database_cleaner', '>= 1.4.1'
+  # Open web browser from test suite
+  gem 'launchy', '>= 2.4.3'
+  # Test JS browser interactions
+  gem 'selenium-webdriver', '>= 2.45.0'
+  #  Ruby cops
+  gem 'rubocop', '~> 0.40.0', require: false
+  # Ruboco for Rspec
+  gem 'rubocop-rspec'
+  # Rubocop for guard
+  gem 'guard-rubocop'
 end
 
 group :test do
-  gem "rspec-collection_matchers"
-	# Fake data generator
-  gem "faker", "~> 1.6.0"
-  # Simulate User Interactions
-  gem "capybara", "~> 2.5.0"
-  # Easily reset db between tests
-  gem "database_cleaner", "~> 1.5.0"
-  # Open web browser from test suite
-  gem "launchy", "~> 2.4.0"
-  # Test JS browser interactions
-  gem "selenium-webdriver", "~> 2.48.0"
+  # Better matchers for Rspec
+  gem 'shoulda-matchers', '~> 3.0'
+  # Code Coverage
+  gem 'simplecov'
+  gem 'simplecov-rcov'
+  # Reporting for Jenkins
+  gem 'ci_reporter'
+  # Rspec Reporting for Jenkins
+  gem 'ci_reporter_rspec'
 end
 
 # =======================
 # DEPLOYMENT
 # =======================
 
-gem 'capistrano', '~> 3.4.0'
+group :development do
+  gem 'capistrano-harrow', git: 'https://github.com/harrowio/capistrano-harrow', tag: '0.3.1'
+  gem 'capistrano', '>= 3.4.0'
+  gem 'capistrano-rails', '>= 1.1.2'
+  gem 'capistrano-bundler', '>= 1.1'
+  gem 'capistrano-rvm', '>= 0.1.2'
+  gem 'capistrano-touch-linked-files', '>= 0.2.1'
+  gem 'capistrano3-puma', github: 'seuros/capistrano-puma'
+  gem 'slackistrano', '>= 3.0.1', require: false
+end
 
 # =======================
 # LIVE RELOAD FOR DEVELOPMENT
 # =======================
 
 group :development do
-  gem 'guard',            '~> 2.13.0',  :require => false
-  gem 'guard-livereload', '~> 2.5.0',   :require => false
-  gem 'rack-livereload',  '~> 0.3.16'
-  gem 'rb-fsevent',       '~> 0.9.6',   :require => false
+  gem 'guard', '>= 2.12.5', require: false
+  gem 'guard-livereload', '>= 2.5.2', require: false
+  # Watch test files and run on save, start it with: guard init rspec
+  gem 'guard-rspec', '>= 4.6.5', require: false
+  gem 'rack-livereload', '>= 0.3.15'
+  gem 'rb-fsevent', '>= 0.9.4', require: false
 end
 
 # =======================
@@ -124,9 +175,6 @@ end
 
 # Use unicorn as the app server
 # gem 'unicorn'
-
-# Use Capistrano for deployment
-# gem 'capistrano-rails', group: :development
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]

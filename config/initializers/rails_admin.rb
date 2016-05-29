@@ -3,10 +3,10 @@ RailsAdmin.config do |config|
   ### Popular gems integration
 
   ## == Devise ==
-  # config.authenticate_with do
-  #   warden.authenticate! scope: :user
-  # end
-  # config.current_user_method(&:current_user)
+  config.authenticate_with do
+    warden.authenticate! scope: :user
+  end
+  config.current_user_method(&:current_user)
 
   ## == Cancan ==
   # config.authorize_with :cancan
@@ -33,5 +33,23 @@ RailsAdmin.config do |config|
     ## With an audit adapter, you can add:
     # history_index
     # history_show
+  end
+end
+
+require "rails_admin/application_controller"
+
+module RailsAdmin
+  class ApplicationController < ::ApplicationController
+    # Before loading the admin panel check if the user is an admin
+    before_action :admin?
+    private
+      def admin?
+        if !User.find_by(admin: true)
+          current_user.update_attributes(admin: true)
+        end
+        if !current_user.admin
+          redirect_to "/", alert: "You do not have permission to access that."
+        end
+      end
   end
 end
