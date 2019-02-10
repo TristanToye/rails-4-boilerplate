@@ -2,6 +2,8 @@
 
 ![Rails Banner](https://raw.githubusercontent.com/TristanToye/rails-4-boilerplate/master/app/assets/images/ruby-on-rails.jpg "Rails 4 Boilerplate")
 
+**UPDATED:** I have started a rails 5 boilerplate here: https://github.com/TristanToye/rails-5-boilerplate
+
 This is a starting point for a simple user app in rails. This core set of gems requires very little config to get up and running. The goal was to make this as simple as possible. Config all in one file, out of the box ready to rock user based app.
 
 A demo can be found here, it may take a second to load: [https://rails-4-boilerplate.herokuapp.com/](https://rails-4-boilerplate.herokuapp.com/)
